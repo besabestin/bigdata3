@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  postgres_db:
+    platform: linux/amd64
+    image: postgres:latest
+    ports:
+    - 5434:5432
+    environment:
+    - POSTGRES_PASSWORD=Stairway1
+    volumes:
+    - ./db:/app
+    - ./db/init.sql:/docker-entrypoint-initdb.d/create_db.sql
+    networks:
+    - shopperapp
+  
+  backend:
+    platform: linux/amd64
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: uvicorn main:app --host 0.0.0.0 --port 5000 --reload
+    ports:
+    - 8003:5000
+    volumes:
+      - ./backend:/app
+    depends_on:
+    - postgres_db
+    networks:
+    - shopperapp
+
+  frontend:
+    platform: linux/amd64
+    build: ./frontend
+    command: npm run serve
+    ports:
+      - 6523:8080
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+networks:
+  shopperapp:
+    driver: bridge
