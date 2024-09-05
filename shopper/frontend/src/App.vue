@@ -17,8 +17,8 @@ export default {
           </RouterLink>
         </div>
         <nav>
-          <RouterLink to="/listings">Listings</RouterLink>
-          <RouterLink to="/about">About</RouterLink>
+          <RouterLink to="/need-to-buy">Need to Buy</RouterLink>
+          <RouterLink to="/history">History</RouterLink>
         </nav>
       </div>
     </div>
