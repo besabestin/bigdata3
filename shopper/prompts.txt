@@ -1,0 +1,32 @@
+
+1. show remote git url
+2. show on which branch I am
+3. switch to a different branch
+4. delete local branch
+4. show all running docker containers
+5. stop all running docker containers
+6. @workspace what technologies are used in this repo
+
+
+prompts:
+I am interested in integrating a small shopping list app in this project. It would be quite simple that it will list things that I need to buy when I go to suppermarket and also shows history of things that I already bought. First let's do the database relationship specifically for postgresql. Can you provide the sql tabls please? There should be a way to set quantity and the types of quantity. And the type of quantity should be reusable at frontend so probably better to save in another table? And would be nice if we initialize with some common types like "pieces", "kg", "liter" etc.
+
+
+can you do that without using a history table? Just handle all that information within the items table and create an extra quantity_type table so that later users can easily select out of specific types or create new one
+
+
+based on this utils function and the above tables, can you provide a python service to insert into database and read items to be bought and also items that are already bought?
+
+can you provide only the new functions without additional code or explanation?
+
+
+can you provide proper api endpoints for those? you can also consider basemodels.
+
+
+I want to create the frontend using vuejs. please use best practices and make the styles nice using tailwindcss. I want two tabs: one for "Need to buy" and another for "History". In the first tab there should also be a form to add new item. The quantity type should be a select box but with an option to add a new one. All that should update frontend and backend at the same time. And checking a checkbox on the left side should mark the item as "bought". Please use fetch, assume tailwindcss is already installed and provide only the necessary code without much explanation. Thanks :)
+
+
+getting a CORS access control error on this file. How to handle that?
+
+
+Somehow database data would be lost when containers are down. What can you suggest as an improvement here?
